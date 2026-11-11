@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "seed_primary": 22,
+  "repeat_seeds": [12, 32],
+  "retention_fraction": 0.8,
+  "noise_floor_px": 0.5,
+  "grid_bins": 10,
+  "max_scan_points": 500000,
+  "development_subsets": ["rig_delivery_area", "rig_electro", "dslr_courtyard", "dslr_meadow", "dslr_delivery_area", "dslr_electro"],
+  "repeat_policy": "Repeat the other 12 multi-view subsets at both repeat seeds; record all failures. Primary comparisons use seed 22.",
+  "prior_exposure": "V1 explored all two-view scenes and four multi-view subsets. Remaining multi-view reconstructions are withheld from V2 development, but some share physical scenes with V1 two-view data. This is not a pristine external test set.",
+  "selection_uses_ground_truth": false,
+  "sfm_config": {"max_size": 1200, "max_features": 4000, "ba_max_nfev": 80, "minimal_gauge_ba": true}
+}

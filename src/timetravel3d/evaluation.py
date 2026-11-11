@@ -156,7 +156,7 @@ def load_scan_samples(directory, max_points=200000):
     return points, records
 
 
-def run(reconstruction, scene, gt, output, config_path=None, distance_threshold=.05, max_scan_points=200000):
+def run(reconstruction, scene, gt, output, config_path=None, distance_threshold=.05, max_scan_points=200000, masks_override=None):
     reconstruction, output = Path(reconstruction), Path(output)
     if reconstruction.is_dir():
         reconstruction /= "reconstruction.npz"
@@ -169,6 +169,8 @@ def run(reconstruction, scene, gt, output, config_path=None, distance_threshold=
     config = ConfidenceConfig.load(config_path)
     scores, masks = score_and_filter(data["errors"], data["angles"], data["support"], config)
     masks.update(matched_retention_masks(scores, masks, data["angles"]))
+    if masks_override is not None:
+        masks = masks_override
     _, views, category = load_scene(scene)
     scan = None
     if category == "two_view":
