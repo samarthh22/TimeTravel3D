@@ -47,3 +47,9 @@ def test_count_matched_controls_and_fixed_coverage_denominator():
     assert base["grid_coverage_retention"] == 1
     assert filtered["grid_coverage_retention"] == pytest.approx(1 / 3)
     assert filtered["baseline_occupied_cells"] == 3
+
+
+def test_angle_count_control_ranks_unsaturated_angles():
+    scores, masks = score_and_filter([.1, .1, 3], [2, 8, 5], [3, 3, 3])
+    controls = matched_retention_masks(scores, masks, np.array([2, 8, 5]))
+    assert controls["angle_matched_count"].tolist() == [False, True, True]

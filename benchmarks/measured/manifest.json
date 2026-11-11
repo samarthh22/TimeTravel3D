@@ -1,0 +1,2642 @@
+{
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+  "confidence_config": "# Prespecified hypotheses; do not tune on held-out scenes.\nerror_scale_px: 1.0\nangle_scale_deg: 1.0\nsupport_target: 4\nreprojection_threshold_px: 0.5\nangle_threshold_deg: 0.3\nscore_threshold: 0.65\nmin_observations: 3\ncombined_weights: [0.6, 0.4]\nmultiview_weights: [0.45, 0.35, 0.2]\n",
+  "confidence_config_sha256": "30329cd8ab35221df1ade1794a32949179c255f1ef77137c5b826a0f41b1743d",
+  "max_scan_points": 200000,
+  "experiments": [
+    {
+      "experiment": "two_view_delivery_area_1l",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_delivery_area_1l\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_delivery_area_1l\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_delivery_area_1l\\baseline",
+          "--scene",
+          "..\\two_view_training\\delivery_area_1l",
+          "--ground-truth",
+          "..\\two_view_training_gt\\delivery_area_1l",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_delivery_area_1l\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.0599101,
+        "valid_baseline_gt_points": 83,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_delivery_area_1s",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_delivery_area_1s\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_delivery_area_1s\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_delivery_area_1s\\baseline",
+          "--scene",
+          "..\\two_view_training\\delivery_area_1s",
+          "--ground-truth",
+          "..\\two_view_training_gt\\delivery_area_1s",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_delivery_area_1s\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.059970100000000005,
+        "valid_baseline_gt_points": 275,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_delivery_area_2l",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_delivery_area_2l\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_delivery_area_2l\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_delivery_area_2l\\baseline",
+          "--scene",
+          "..\\two_view_training\\delivery_area_2l",
+          "--ground-truth",
+          "..\\two_view_training_gt\\delivery_area_2l",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_delivery_area_2l\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.0598896,
+        "valid_baseline_gt_points": 203,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_delivery_area_2s",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_delivery_area_2s\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_delivery_area_2s\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_delivery_area_2s\\baseline",
+          "--scene",
+          "..\\two_view_training\\delivery_area_2s",
+          "--ground-truth",
+          "..\\two_view_training_gt\\delivery_area_2s",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_delivery_area_2s\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.059970100000000005,
+        "valid_baseline_gt_points": 99,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_delivery_area_3l",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_delivery_area_3l\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_delivery_area_3l\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_delivery_area_3l\\baseline",
+          "--scene",
+          "..\\two_view_training\\delivery_area_3l",
+          "--ground-truth",
+          "..\\two_view_training_gt\\delivery_area_3l",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_delivery_area_3l\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.0598897,
+        "valid_baseline_gt_points": 145,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_delivery_area_3s",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_delivery_area_3s\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_delivery_area_3s\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_delivery_area_3s\\baseline",
+          "--scene",
+          "..\\two_view_training\\delivery_area_3s",
+          "--ground-truth",
+          "..\\two_view_training_gt\\delivery_area_3s",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_delivery_area_3s\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.059949600000000006,
+        "valid_baseline_gt_points": 182,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_electro_1l",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_electro_1l\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_electro_1l\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_electro_1l\\baseline",
+          "--scene",
+          "..\\two_view_training\\electro_1l",
+          "--ground-truth",
+          "..\\two_view_training_gt\\electro_1l",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_electro_1l\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.0598102,
+        "valid_baseline_gt_points": 406,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_electro_1s",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_electro_1s\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_electro_1s\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_electro_1s\\baseline",
+          "--scene",
+          "..\\two_view_training\\electro_1s",
+          "--ground-truth",
+          "..\\two_view_training_gt\\electro_1s",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_electro_1s\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.06010000000000001,
+        "valid_baseline_gt_points": 346,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_electro_2l",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_electro_2l\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_electro_2l\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_electro_2l\\baseline",
+          "--scene",
+          "..\\two_view_training\\electro_2l",
+          "--ground-truth",
+          "..\\two_view_training_gt\\electro_2l",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_electro_2l\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.0598202,
+        "valid_baseline_gt_points": 256,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_electro_2s",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_electro_2s\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_electro_2s\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_electro_2s\\baseline",
+          "--scene",
+          "..\\two_view_training\\electro_2s",
+          "--ground-truth",
+          "..\\two_view_training_gt\\electro_2s",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_electro_2s\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.0601004,
+        "valid_baseline_gt_points": 11,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_electro_3l",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_electro_3l\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_electro_3l\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_electro_3l\\baseline",
+          "--scene",
+          "..\\two_view_training\\electro_3l",
+          "--ground-truth",
+          "..\\two_view_training_gt\\electro_3l",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_electro_3l\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.05982950000000001,
+        "valid_baseline_gt_points": 8,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_electro_3s",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_electro_3s\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_electro_3s\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_electro_3s\\baseline",
+          "--scene",
+          "..\\two_view_training\\electro_3s",
+          "--ground-truth",
+          "..\\two_view_training_gt\\electro_3s",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_electro_3s\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.06009920000000001,
+        "valid_baseline_gt_points": 45,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_facade_1s",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_facade_1s\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_facade_1s\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_facade_1s\\baseline",
+          "--scene",
+          "..\\two_view_training\\facade_1s",
+          "--ground-truth",
+          "..\\two_view_training_gt\\facade_1s",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_facade_1s\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.05782020000000001,
+        "valid_baseline_gt_points": 327,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_forest_1s",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_forest_1s\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_forest_1s\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_forest_1s\\baseline",
+          "--scene",
+          "..\\two_view_training\\forest_1s",
+          "--ground-truth",
+          "..\\two_view_training_gt\\forest_1s",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_forest_1s\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.059610100000000006,
+        "valid_baseline_gt_points": 911,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_forest_2s",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_forest_2s\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_forest_2s\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_forest_2s\\baseline",
+          "--scene",
+          "..\\two_view_training\\forest_2s",
+          "--ground-truth",
+          "..\\two_view_training_gt\\forest_2s",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_forest_2s\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.05961,
+        "valid_baseline_gt_points": 740,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_playground_1l",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_playground_1l\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_playground_1l\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_playground_1l\\baseline",
+          "--scene",
+          "..\\two_view_training\\playground_1l",
+          "--ground-truth",
+          "..\\two_view_training_gt\\playground_1l",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_playground_1l\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.05955490000000001,
+        "valid_baseline_gt_points": 51,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_playground_1s",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_playground_1s\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_playground_1s\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_playground_1s\\baseline",
+          "--scene",
+          "..\\two_view_training\\playground_1s",
+          "--ground-truth",
+          "..\\two_view_training_gt\\playground_1s",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_playground_1s\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.05997990000000001,
+        "valid_baseline_gt_points": 56,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_playground_2l",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_playground_2l\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_playground_2l\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_playground_2l\\baseline",
+          "--scene",
+          "..\\two_view_training\\playground_2l",
+          "--ground-truth",
+          "..\\two_view_training_gt\\playground_2l",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_playground_2l\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.059558900000000005,
+        "valid_baseline_gt_points": 108,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_playground_2s",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_playground_2s\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_playground_2s\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_playground_2s\\baseline",
+          "--scene",
+          "..\\two_view_training\\playground_2s",
+          "--ground-truth",
+          "..\\two_view_training_gt\\playground_2s",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_playground_2s\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.0599729,
+        "valid_baseline_gt_points": 9,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_playground_3l",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_playground_3l\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_playground_3l\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_playground_3l\\baseline",
+          "--scene",
+          "..\\two_view_training\\playground_3l",
+          "--ground-truth",
+          "..\\two_view_training_gt\\playground_3l",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_playground_3l\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.0595499,
+        "valid_baseline_gt_points": 321,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_playground_3s",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_playground_3s\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_playground_3s\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_playground_3s\\baseline",
+          "--scene",
+          "..\\two_view_training\\playground_3s",
+          "--ground-truth",
+          "..\\two_view_training_gt\\playground_3s",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_playground_3s\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.05998040000000001,
+        "valid_baseline_gt_points": 200,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_terrace_1s",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_terrace_1s\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_terrace_1s\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_terrace_1s\\baseline",
+          "--scene",
+          "..\\two_view_training\\terrace_1s",
+          "--ground-truth",
+          "..\\two_view_training_gt\\terrace_1s",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_terrace_1s\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.05993910000000001,
+        "valid_baseline_gt_points": 99,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_terrace_2s",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_terrace_2s\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_terrace_2s\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_terrace_2s\\baseline",
+          "--scene",
+          "..\\two_view_training\\terrace_2s",
+          "--ground-truth",
+          "..\\two_view_training_gt\\terrace_2s",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_terrace_2s\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.059943199999999995,
+        "valid_baseline_gt_points": 153,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_terrains_1l",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_terrains_1l\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_terrains_1l\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_terrains_1l\\baseline",
+          "--scene",
+          "..\\two_view_training\\terrains_1l",
+          "--ground-truth",
+          "..\\two_view_training_gt\\terrains_1l",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_terrains_1l\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.060380100000000006,
+        "valid_baseline_gt_points": 293,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_terrains_1s",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_terrains_1s\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_terrains_1s\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_terrains_1s\\baseline",
+          "--scene",
+          "..\\two_view_training\\terrains_1s",
+          "--ground-truth",
+          "..\\two_view_training_gt\\terrains_1s",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_terrains_1s\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.06007960000000001,
+        "valid_baseline_gt_points": 507,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_terrains_2l",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_terrains_2l\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_terrains_2l\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_terrains_2l\\baseline",
+          "--scene",
+          "..\\two_view_training\\terrains_2l",
+          "--ground-truth",
+          "..\\two_view_training_gt\\terrains_2l",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_terrains_2l\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.060381,
+        "valid_baseline_gt_points": 50,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "two_view_terrains_2s",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\two_view_terrains_2s\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\two_view_terrains_2s\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\two_view_terrains_2s\\baseline",
+          "--scene",
+          "..\\two_view_training\\terrains_2s",
+          "--ground-truth",
+          "..\\two_view_training_gt\\terrains_2s",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\two_view_terrains_2s\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Sparse nearest-pixel non-occluded PFM diagnostics; not official dense benchmark score",
+        "alignment": "Estimated first-camera frame; calibrated stereo baseline fixes metric scale for evaluation only",
+        "scale_to_meters": 0.06008200000000001,
+        "valid_baseline_gt_points": 51,
+        "sampling": "nearest native image pixel; only mask value 255; no interpolation across invalid pixels"
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "im0.png",
+        "im1.png"
+      ]
+    },
+    {
+      "experiment": "rig_delivery_area",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\rig_delivery_area\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\rig_delivery_area\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\rig_delivery_area\\baseline",
+          "--scene",
+          "..\\multi_view_training_rig_undistorted\\delivery_area",
+          "--ground-truth",
+          "..\\multi_view_training_rig_scan_eval\\delivery_area\\rig_scan_eval",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\rig_delivery_area\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Camera-aligned sparse-to-sampled-scan nearest-neighbor diagnostics; not official ETH3D scores",
+        "alignment": "Rotation-informed camera-pose similarity; same transform for every filter; no scan ICP",
+        "scale_to_meters": 0.9545542724570832,
+        "rotation": [
+          [
+            0.9190014684126998,
+            -0.040054209186915574,
+            0.3922141779458172
+          ],
+          [
+            -0.39400739256179085,
+            -0.058118722578423265,
+            0.9172678936344125
+          ],
+          [
+            -0.013945453092716886,
+            -0.9975058267560466,
+            -0.06919284591470248
+          ]
+        ],
+        "translation": [
+          1.4158213352120026,
+          8.113343077186082,
+          -3.3210136682302083
+        ],
+        "scan_sampling": "uniform vertex indices per scan; fixed deterministic budget",
+        "sampled_scan_points": 200000,
+        "scans": [
+          {
+            "file": "scan1.ply",
+            "vertices": 2823478,
+            "sampled": 100000,
+            "scan_to_world": [
+              [
+                1.0,
+                -2.98023e-08,
+                -8.88178e-16,
+                0.282982
+              ],
+              [
+                2.98023e-08,
+                1.0,
+                5.96046e-08,
+                -0.0145171
+              ],
+              [
+                -8.88178e-16,
+                -5.96046e-08,
+                1.0,
+                -3.2256
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          {
+            "file": "scan2.ply",
+            "vertices": 3702738,
+            "sampled": 100000,
+            "scan_to_world": [
+              [
+                0.991229,
+                -0.132157,
+                -0.00010752,
+                1.34562
+              ],
+              [
+                0.132157,
+                0.991229,
+                -0.00033849,
+                6.60235
+              ],
+              [
+                0.00015131,
+                0.000321312,
+                1.0,
+                -3.2164
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        ],
+        "visibility_masks_used": false,
+        "camera_center_rmse_m": 0.04465582537766034,
+        "camera_rotation_median_deg": 0.6141391205394252
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "images_rig_cam5_undistorted/1477843917481127523.png",
+        "images_rig_cam5_undistorted/1477843918365863523.png",
+        "images_rig_cam5_undistorted/1477843919250599523.png",
+        "images_rig_cam5_undistorted/1477843920135335523.png",
+        "images_rig_cam5_undistorted/1477843921020071523.png"
+      ]
+    },
+    {
+      "experiment": "rig_electro",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\rig_electro\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\rig_electro\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\rig_electro\\baseline",
+          "--scene",
+          "..\\multi_view_training_rig_undistorted\\electro",
+          "--ground-truth",
+          "..\\multi_view_training_rig_scan_eval\\electro\\rig_scan_eval",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\rig_electro\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Camera-aligned sparse-to-sampled-scan nearest-neighbor diagnostics; not official ETH3D scores",
+        "alignment": "Rotation-informed camera-pose similarity; same transform for every filter; no scan ICP",
+        "scale_to_meters": 0.5018817311386528,
+        "rotation": [
+          [
+            0.8801876142831165,
+            -0.013181939589705649,
+            -0.47444283125709635
+          ],
+          [
+            0.47326574088636736,
+            -0.05124809338045622,
+            0.8794277522503747
+          ],
+          [
+            -0.035906854023626755,
+            -0.9985989532307361,
+            -0.038869376642860665
+          ]
+        ],
+        "translation": [
+          4.980613672822211,
+          2.528823424631468,
+          -3.4623956262808604
+        ],
+        "scan_sampling": "uniform vertex indices per scan; fixed deterministic budget",
+        "sampled_scan_points": 200000,
+        "scans": [
+          {
+            "file": "scan1.ply",
+            "vertices": 7148785,
+            "sampled": 50000,
+            "scan_to_world": [
+              [
+                1.0,
+                -5.96047e-08,
+                -1.19209e-07,
+                0.43078
+              ],
+              [
+                5.96046e-08,
+                1.0,
+                -2.38419e-07,
+                -0.440867
+              ],
+              [
+                1.19209e-07,
+                2.38419e-07,
+                1.0,
+                -3.23396
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          {
+            "file": "scan2.ply",
+            "vertices": 5770342,
+            "sampled": 50000,
+            "scan_to_world": [
+              [
+                1.0,
+                -4.64916e-06,
+                -1.54972e-06,
+                2.17559
+              ],
+              [
+                4.64916e-06,
+                1.0,
+                -1.31131e-06,
+                0.769698
+              ],
+              [
+                1.54972e-06,
+                1.3113e-06,
+                1.0,
+                -3.23002
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          {
+            "file": "scan3.ply",
+            "vertices": 4630777,
+            "sampled": 50000,
+            "scan_to_world": [
+              [
+                1.0,
+                -2.03849e-05,
+                -8.5233e-06,
+                5.37963
+              ],
+              [
+                2.03847e-05,
+                1.0,
+                -1.63914e-05,
+                2.11404
+              ],
+              [
+                8.52363e-06,
+                1.63912e-05,
+                1.0,
+                -3.22415
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          {
+            "file": "scan4.ply",
+            "vertices": 3576178,
+            "sampled": 50000,
+            "scan_to_world": [
+              [
+                1.0,
+                2.92658e-05,
+                -3.10037e-06,
+                7.75731
+              ],
+              [
+                -2.9266e-05,
+                1.0,
+                -6.35981e-05,
+                3.8312
+              ],
+              [
+                3.09851e-06,
+                6.35982e-05,
+                1.0,
+                -3.21579
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        ],
+        "visibility_masks_used": false,
+        "camera_center_rmse_m": 0.007011456635818683,
+        "camera_rotation_median_deg": 0.19454070765689863
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "images_rig_cam5_undistorted/1474975187520882738.png",
+        "images_rig_cam5_undistorted/1474975188405618738.png",
+        "images_rig_cam5_undistorted/1474975189290354738.png",
+        "images_rig_cam5_undistorted/1474975190175090738.png",
+        "images_rig_cam5_undistorted/1474975191059826738.png"
+      ]
+    },
+    {
+      "experiment": "dslr_courtyard",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\dslr_courtyard\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\dslr_courtyard\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\dslr_courtyard\\baseline",
+          "--scene",
+          "..\\multi_view_training_dslr_undistorted\\courtyard",
+          "--ground-truth",
+          "..\\multi_view_training_dslr_scan_eval\\courtyard\\dslr_scan_eval",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\dslr_courtyard\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Camera-aligned sparse-to-sampled-scan nearest-neighbor diagnostics; not official ETH3D scores",
+        "alignment": "Rotation-informed camera-pose similarity; same transform for every filter; no scan ICP",
+        "scale_to_meters": 0.5728889696454195,
+        "rotation": [
+          [
+            -0.05309630346171665,
+            0.16167849428151965,
+            -0.9854140485326772
+          ],
+          [
+            0.9985479937364057,
+            -0.000389625732779203,
+            -0.05386791620980769
+          ],
+          [
+            -0.00909322625363529,
+            -0.9868434083879005,
+            -0.16142304840899038
+          ]
+        ],
+        "translation": [
+          3.8758729397962672,
+          -4.2749618538957534,
+          1.6434993497569594
+        ],
+        "scan_sampling": "uniform vertex indices per scan; fixed deterministic budget",
+        "sampled_scan_points": 200000,
+        "scans": [
+          {
+            "file": "scan2.ply",
+            "vertices": 17489909,
+            "sampled": 100000,
+            "scan_to_world": [
+              [
+                1.0,
+                -2.38419e-07,
+                -5.96047e-08,
+                3.59469
+              ],
+              [
+                2.38419e-07,
+                1.0,
+                2.38419e-07,
+                0.562818
+              ],
+              [
+                5.96046e-08,
+                -2.38419e-07,
+                1.0,
+                1.80679
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          {
+            "file": "scan1.ply",
+            "vertices": 16964565,
+            "sampled": 100000,
+            "scan_to_world": [
+              [
+                0.996548,
+                0.0830159,
+                -5.48683e-05,
+                3.81589
+              ],
+              [
+                -0.0830159,
+                0.996548,
+                0.000287318,
+                -7.23808
+              ],
+              [
+                7.85309e-05,
+                -0.000281772,
+                1.0,
+                1.86659
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        ],
+        "visibility_masks_used": false,
+        "camera_center_rmse_m": 0.006644195615086541,
+        "camera_rotation_median_deg": 0.04906309645028116
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "dslr_images_undistorted/DSC_0286.JPG",
+        "dslr_images_undistorted/DSC_0287.JPG",
+        "dslr_images_undistorted/DSC_0288.JPG",
+        "dslr_images_undistorted/DSC_0289.JPG",
+        "dslr_images_undistorted/DSC_0290.JPG",
+        "dslr_images_undistorted/DSC_0291.JPG"
+      ]
+    },
+    {
+      "experiment": "dslr_meadow",
+      "status": "success",
+      "commands": [
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "ablate",
+          "results\\benchmark\\dslr_meadow\\baseline",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--output",
+          "results\\benchmark\\dslr_meadow\\ablation"
+        ],
+        [
+          "python",
+          "-m",
+          "timetravel3d",
+          "evaluate",
+          "results\\benchmark\\dslr_meadow\\baseline",
+          "--scene",
+          "..\\multi_view_training_dslr_undistorted\\meadow",
+          "--ground-truth",
+          "..\\multi_view_training_dslr_scan_eval\\meadow\\dslr_scan_eval",
+          "--config",
+          ".\\configs\\confidence.yaml",
+          "--max-scan-points",
+          "200000",
+          "--output",
+          "results\\benchmark\\dslr_meadow\\evaluation"
+        ]
+      ],
+      "baseline_reused": true,
+      "protocol": {
+        "protocol": "Camera-aligned sparse-to-sampled-scan nearest-neighbor diagnostics; not official ETH3D scores",
+        "alignment": "Rotation-informed camera-pose similarity; same transform for every filter; no scan ICP",
+        "scale_to_meters": 2.4426345701271277,
+        "rotation": [
+          [
+            0.6342445699980833,
+            -0.09441939102353769,
+            -0.767345296477858
+          ],
+          [
+            0.7702209441660373,
+            -0.008889167832532241,
+            0.6377152027850868
+          ],
+          [
+            -0.06703374221931563,
+            -0.9954928233262108,
+            0.06708588607214616
+          ]
+        ],
+        "translation": [
+          4.140556679857429,
+          -10.152661003788728,
+          4.082409282274832
+        ],
+        "scan_sampling": "uniform vertex indices per scan; fixed deterministic budget",
+        "sampled_scan_points": 200000,
+        "scans": [
+          {
+            "file": "scan2.ply",
+            "vertices": 8092730,
+            "sampled": 100000,
+            "scan_to_world": [
+              [
+                1.0,
+                5.96047e-08,
+                1.19209e-07,
+                4.84746
+              ],
+              [
+                -5.96046e-08,
+                1.0,
+                -1.78814e-07,
+                0.165371
+              ],
+              [
+                -1.19209e-07,
+                1.78814e-07,
+                1.0,
+                3.80359
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          {
+            "file": "scan1.ply",
+            "vertices": 6250029,
+            "sampled": 100000,
+            "scan_to_world": [
+              [
+                -0.679607,
+                0.733577,
+                0.000113884,
+                1.32798
+              ],
+              [
+                -0.733577,
+                -0.679607,
+                0.000203433,
+                -9.33642
+              ],
+              [
+                0.00022663,
+                5.47115e-05,
+                1.0,
+                4.12173
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        ],
+        "visibility_masks_used": false,
+        "camera_center_rmse_m": 0.04751257981316108,
+        "camera_rotation_median_deg": 0.13309153331908416
+      },
+      "versions": {
+        "python": "3.13.7",
+        "numpy": "2.5.4",
+        "opencv-python": "4.14.0.94",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "PyYAML": "6.0.3"
+      },
+      "config": {
+        "seed": 22,
+        "max_size": 1600,
+        "max_features": 6000,
+        "lowe_ratio": 0.75,
+        "mutual_matching": true,
+        "ransac_px": 1.0,
+        "ransac_probability": 0.999,
+        "seed_min_angle_deg": 0.3,
+        "min_initial_points": 20,
+        "point_min_angle_deg": 0.05,
+        "track_max_error_px": 4.0,
+        "pnp_error_px": 3.0,
+        "min_pnp_inliers": 8,
+        "bundle_adjustment": true,
+        "ba_max_nfev": 40
+      },
+      "selected_images": [
+        "dslr_images_undistorted/DSC_6535.JPG",
+        "dslr_images_undistorted/DSC_6536.JPG",
+        "dslr_images_undistorted/DSC_6537.JPG",
+        "dslr_images_undistorted/DSC_6538.JPG",
+        "dslr_images_undistorted/DSC_6539.JPG",
+        "dslr_images_undistorted/DSC_6540.JPG"
+      ]
+    }
+  ]
+}

@@ -51,3 +51,21 @@ are excluded from Git. Small aggregate measured tables may be committed to
   combined 530 (94.31% retention, 95.32% occupied-cell retention);
   multi-view support 275 (48.93% retention, 75.92% occupied-cell retention).
 - No 3D accuracy conclusion is inferred from these retention/residual results.
+
+## Stage 4: independent evaluation and reproducible experiments
+
+- Implemented PFM endian/orientation and non-occlusion handling, stereo metric
+  scale, camera-pose similarity alignment, MeshLab scan transforms, and sampled
+  laser-scan nearest-neighbor diagnostics with explicit protocol limitations.
+- Added runtime, native process peak memory, environment lock, full benchmark
+  runner, measured report generator, presentation outline and viva notes.
+- `python -m pytest -q`: **21 passed**. `python -m pip check`: no broken requirements.
+- Full benchmark: **31/31 experiments completed**, covering every local two-view
+  training scene plus two rig and two DSLR subsets. All four subsets had 5+
+  registered cameras; meadow registered 5/6 and reports the missing view.
+- Recomputed all ablations/evaluation from frozen baselines after correcting the
+  angle-only matched-count control to rank unsaturated angles. No confidence
+  thresholds or reconstruction parameters were tuned from the measured errors.
+- Aggregate 217-row tables and interpretation are in `benchmarks/measured/`
+  and `docs/RESULTS.md`. Filtering does not consistently improve independent
+  ground-truth diagnostics; empty filters and undefined metrics are retained.

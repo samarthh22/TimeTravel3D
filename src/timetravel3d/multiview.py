@@ -10,7 +10,7 @@ from .bundle import bundle_adjust
 from .data import load_image, load_scene
 from .features import extract, match
 from .geometry import Pose, angles, estimate_relative, normalize, point_metrics, project, triangulate
-from .output import save_reconstruction, summary, versions
+from .output import peak_memory_mb, save_reconstruction, summary, versions
 from .tracks import build_tracks
 
 
@@ -183,7 +183,8 @@ def run(scene, output, config, count=8, stride=1, start=0, camera_id=None, known
         "subset": {"requested_views": count, "stride": stride, "start": start},
         "features": [len(f.xy) for f in features], "registered_cameras": len(poses),
         "registration_rate": len(poses) / len(selected), "metrics": summary(errors, angle, support),
-        "runtime_seconds": perf_counter() - begin, **details}
+        "runtime_seconds": perf_counter() - begin,
+        "peak_process_memory_mb": peak_memory_mb(), **details}
     save_reconstruction(output, points, colors, errors, angle, support, obs, poses, K,
         {i: v.name for i, v in enumerate(selected)}, report)
     return report

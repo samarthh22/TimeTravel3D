@@ -47,6 +47,14 @@ def main():
     ablate.add_argument("reconstruction", type=Path)
     ablate.add_argument("--output", type=Path, required=True)
     ablate.add_argument("--config", type=Path, help="Confidence YAML, not the SfM configuration")
+    evaluate = sub.add_parser("evaluate", help="Independent sparse ground-truth diagnostics")
+    evaluate.add_argument("reconstruction", type=Path)
+    evaluate.add_argument("--scene", type=Path, required=True)
+    evaluate.add_argument("--ground-truth", type=Path, required=True)
+    evaluate.add_argument("--output", type=Path, required=True)
+    evaluate.add_argument("--config", type=Path, help="Confidence configuration")
+    evaluate.add_argument("--distance-threshold", type=float, default=.05)
+    evaluate.add_argument("--max-scan-points", type=int, default=200000)
     args = parser.parse_args()
     try:
         if args.command == "inspect":
@@ -62,9 +70,13 @@ def main():
                 config["bundle_adjustment"] = False
             result = run(args.scene, args.output, config, args.views, args.stride,
                          args.start, args.camera_id, args.known_poses)
-        else:
+        elif args.command == "ablate":
             from .experiments import run
             result = run(args.reconstruction, args.output, args.config)
+        else:
+            from .evaluation import run
+            result = run(args.reconstruction, args.scene, args.ground_truth, args.output,
+                         args.config, args.distance_threshold, args.max_scan_points)
     except (ValueError, FileNotFoundError) as exc:
         parser.exit(2, f"Error: {exc}\n")
     print(json.dumps(result, indent=2, allow_nan=False))

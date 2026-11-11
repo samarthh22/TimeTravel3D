@@ -59,7 +59,7 @@ Adding `--known-poses` uses supplied ETH3D extrinsics and disables pose estimati
 and BA. Reports label this `known_pose_triangulation`; it is not estimated SfM.
 Supplied COLMAP points and observations are never reused as input or ground truth.
 
-## References and research scope
+## Confidence experiments
 
 The [confidence method](docs/NOVELTY.md) has its own implementation commit.
 Run its five frozen-baseline ablations and two point-count-matched controls:
@@ -70,6 +70,24 @@ python -m timetravel3d ablate results\rig_delivery_area --config configs\confide
 
 JSON/CSV, point clouds, and plots expose retention and image grid coverage.
 Weights and cutoffs are configurable hypotheses.
+
+## Evaluation and full benchmark
+
+```powershell
+python scripts\run_benchmarks.py --data-root .. --output results\benchmark --publish-dir benchmarks\measured
+```
+
+This runs all 27 local two-view scenes and four multi-view subsets, exporting
+aggregate JSON/CSV and experiment provenance. [Evaluation documentation](docs/EVALUATION.md)
+explains scale alignment, PFM masks, scan sampling, runtime and memory accounting.
+Ground-truth results are sparse diagnostics; official ETH3D leaderboard metrics
+are not claimed. Raw data and point clouds stay local.
+
+See [CIF alignment](docs/COURSE_ALIGNMENT.md), [development stages](docs/DEVELOPMENT.md),
+[measured results](docs/RESULTS.md), [confidence contribution](docs/NOVELTY.md),
+[ten-slide outline](docs/PRESENTATION_OUTLINE.md), and [viva preparation](docs/VIVA.md).
+
+## References and research scope
 
 - [Schönberger & Frahm, Structure-from-Motion Revisited, CVPR 2016](https://openaccess.thecvf.com/content_cvpr_2016/html/Schonberger_Structure-From-Motion_Revisited_CVPR_2016_paper.html)
 - [COLMAP](https://github.com/colmap/colmap) and its [text format](https://colmap.github.io/format.html)

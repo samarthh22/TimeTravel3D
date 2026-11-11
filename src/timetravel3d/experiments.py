@@ -32,12 +32,15 @@ def grid_coverage(data, mask, bins=10):
         "coverage_definition": "10x10 grid per view over frozen baseline feature bounds"}
 
 
-def matched_retention_masks(scores, masks):
+def matched_retention_masks(scores, masks, raw_angles=None):
     """Compare single-signal rankings at the combined method's point budget."""
     count = int(masks["combined"].sum())
     output = {}
     for name in ("reprojection", "angle"):
-        order = np.argsort(-scores[name], kind="stable")
+        # Use the raw angle for this control: the confidence angle signal
+        # intentionally saturates, which would otherwise create artificial ties.
+        ranking = raw_angles if name == "angle" and raw_angles is not None else scores[name]
+        order = np.argsort(-np.asarray(ranking), kind="stable")
         keep = np.zeros(len(order), bool)
         keep[order[:count]] = True
         output[name + "_matched_count"] = keep
@@ -88,7 +91,7 @@ def run(reconstruction, output, config_path=None):
     with np.load(reconstruction, allow_pickle=False) as archive:
         data = dict(archive)
     scores, masks = score_and_filter(data["errors"], data["angles"], data["support"], config)
-    masks.update(matched_retention_masks(scores, masks))
+    masks.update(matched_retention_masks(scores, masks, data["angles"]))
     source_path = reconstruction.parent / "report.json"
     source = json.loads(source_path.read_text()) if source_path.exists() else {}
     rows = []

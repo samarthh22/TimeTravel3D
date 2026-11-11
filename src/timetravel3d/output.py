@@ -21,6 +21,30 @@ def versions():
         ("numpy", "opencv-python", "scipy", "matplotlib", "PyYAML")}}
 
 
+def peak_memory_mb():
+    """Peak process working set/RSS, including native libraries, since launch."""
+    if platform.system() == "Windows":
+        import ctypes
+        from ctypes import wintypes
+        class Counters(ctypes.Structure):
+            _fields_ = [("cb", wintypes.DWORD), ("PageFaultCount", wintypes.DWORD)] + [
+                (k, ctypes.c_size_t) for k in ("PeakWorkingSetSize", "WorkingSetSize",
+                "QuotaPeakPagedPoolUsage", "QuotaPagedPoolUsage", "QuotaPeakNonPagedPoolUsage",
+                "QuotaNonPagedPoolUsage", "PagefileUsage", "PeakPagefileUsage")]
+        counters = Counters()
+        counters.cb = ctypes.sizeof(counters)
+        kernel = ctypes.WinDLL("kernel32", use_last_error=True)
+        kernel.GetCurrentProcess.restype = wintypes.HANDLE
+        psapi = ctypes.WinDLL("psapi", use_last_error=True)
+        psapi.GetProcessMemoryInfo.argtypes = [wintypes.HANDLE, ctypes.POINTER(Counters), wintypes.DWORD]
+        if not psapi.GetProcessMemoryInfo(kernel.GetCurrentProcess(), ctypes.byref(counters), counters.cb):
+            return None
+        return counters.PeakWorkingSetSize / 1024 ** 2
+    import resource
+    value = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    return value / (1024 ** 2 if platform.system() == "Darwin" else 1024)
+
+
 def summary(errors, angle, support):
     if not len(errors):
         return {"points": 0, "mean_reprojection_px": None, "median_reprojection_px": None,

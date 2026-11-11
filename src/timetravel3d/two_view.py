@@ -7,7 +7,7 @@ import numpy as np
 from .data import load_image, load_scene
 from .features import extract, match
 from .geometry import Pose, angles, estimate_relative, project
-from .output import save_reconstruction, summary, versions
+from .output import peak_memory_mb, save_reconstruction, summary, versions
 
 
 def run(scene, output, config):
@@ -43,6 +43,7 @@ def run(scene, output, config):
         "registered_cameras": 2, "selected_cameras": 2,
         "metrics": summary(errors, angle, support),
         "runtime_seconds": perf_counter() - start,
+        "peak_process_memory_mb": peak_memory_mb(),
         "provided_extrinsics_used_for_estimation": False}
     save_reconstruction(output, points, colors, errors, angle, support, observations,
         {0: identity, 1: pose}, dict(enumerate(K)), {i: v.name for i, v in enumerate(views)}, report)
