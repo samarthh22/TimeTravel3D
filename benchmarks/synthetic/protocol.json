@@ -1,0 +1,26 @@
+{
+  "seeds": [
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109
+  ],
+  "points_per_seed": 1000,
+  "cameras": 5,
+  "noise": "per-track log-uniform sigma 0.3-3.0 px; zero-mean Gaussian observations",
+  "depth_range_m": [
+    4,
+    20
+  ],
+  "observations": "uniform integer 2-5 views",
+  "camera_poses": "known exactly; this validates conditional point uncertainty, not estimated-camera robustness",
+  "retention": 0.8,
+  "noise_floor_px": 0.5,
+  "matching": "known correct correspondences; no SIFT or gross mismatch outliers"
+}

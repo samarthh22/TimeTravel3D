@@ -1,0 +1,45 @@
+{
+  "attempted_runs": 69,
+  "successful_runs": 66,
+  "failed_runs": 3,
+  "primary_successful_subsets": 44,
+  "heldout_primary_eligible": 11,
+  "heldout_wins_vs_baseline": 9,
+  "heldout_mean_reduction_percent_vs_baseline": 11.960551299596755,
+  "heldout_bootstrap_ci95_mean_reduction": [
+    4.8531586424849396,
+    20.55539825028653
+  ],
+  "heldout_wins_vs_equal_budget_reprojection": 6,
+  "heldout_mean_reduction_percent_vs_equal_budget_reprojection": 6.457249014192593,
+  "primary_median_grid_retention": 1.0,
+  "synthetic_mean_of_seed_medians_m": {
+    "baseline": 0.11090131090566932,
+    "reprojection_budget": 0.09333673303484101,
+    "angle_budget": 0.08134533740541146,
+    "support_budget": 0.09755417915200167,
+    "uncertainty_budget": 0.07802883553729709,
+    "coverage_uncertainty": 0.07803499350194922,
+    "coverage_reprojection": 0.09094726011498153,
+    "coverage_angle": 0.08121080789198033
+  },
+  "synthetic_reduction_vs_baseline_percent": 29.635643740654793,
+  "synthetic_reduction_vs_equal_budget_reprojection_percent": 16.394123766020307,
+  "failures": [
+    {
+      "experiment": "rig_playground",
+      "seed": 12,
+      "error": "ValueError: Nonpositive camera-alignment scale"
+    },
+    {
+      "experiment": "rig_playground",
+      "seed": 22,
+      "error": "ValueError: Nonpositive camera-alignment scale"
+    },
+    {
+      "experiment": "rig_playground",
+      "seed": 32,
+      "error": "ValueError: Nonpositive camera-alignment scale"
+    }
+  ]
+}
