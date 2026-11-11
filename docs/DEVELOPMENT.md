@@ -21,3 +21,23 @@ contribution will have a dedicated commit after the geometric baseline.
 Raw datasets, derived point clouds, environments, and machine-specific paths
 are excluded from Git. Small aggregate measured tables may be committed to
 `benchmarks/` in a later stage.
+
+## Stage 2: incremental multi-view geometry
+
+- Inspected rig calibration: delivery_area has 948 images, four cameras, 237
+  timestamps per camera, PINHOLE models and per-image world-to-camera extrinsics.
+- Inspected high-resolution courtyard: 38 images with four intrinsic blocks.
+- Implemented conflict-aware tracks, parallax-based initialization, PnP-RANSAC,
+  consensus multi-view triangulation, and constrained robust sparse BA.
+- `python -m pytest -q`: **11 passed**, including a four-camera synthetic
+  incremental reconstruction, PnP with outliers, and BA against known 3D geometry.
+- Rig delivery_area, `--views 5 --stride 12`: **5/5 estimated cameras**, 562
+  points, median residual 0.2268 px, mean observation support 2.8203.
+- Same subset with `--known-poses`: 562 points, median residual 0.1579 px;
+  explicitly recorded as a known-pose experiment.
+- High-resolution courtyard, `--views 6` (images resized to 1600 px maximum):
+  **6/6 estimated cameras**, 5,267 points, median residual 0.0925 px,
+  mean support 3.0328; reconstruction runtime 29.10 seconds.
+- BA on the estimated rig subset converged in 5 evaluations, residual component
+  RMSE 0.3080 to 0.2961 px. This is optimizer validation, not evidence of improved
+  ground-truth reconstruction accuracy.

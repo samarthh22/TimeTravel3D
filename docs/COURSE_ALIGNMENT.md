@@ -12,7 +12,7 @@ updated July 2026. The user confirmed this is the intended CIF.
 | Unit V 5.1: epipolar geometry | Calibrated essential matrix and normalized image coordinates |
 | Unit V 5.2: stereo vision | ETH3D stereo pairs with real intrinsics; sparse geometry, not a dense stereo network |
 | Unit V 5.3: triangulation | Homogeneous triangulation, finite-point and cheirality checks, camera-center ray angles |
-| Unit V 5.4: Structure from Motion | Two-view estimated poses; incremental extension is developed in the next stage |
+| Unit V 5.4: Structure from Motion | Estimated two-view initialization, consistent tracks, incremental PnP registration, consensus multi-view triangulation, constrained sparse bundle adjustment |
 
 The project is centered on CO-3 (feature detection/matching) and CO-5
 (3D reconstruction), with CO-1 camera geometry as a foundation. It does not

@@ -5,3 +5,11 @@ lowe_ratio: 0.75
 mutual_matching: true
 ransac_px: 1.0
 ransac_probability: 0.999
+seed_min_angle_deg: 0.3
+min_initial_points: 20
+point_min_angle_deg: 0.05
+track_max_error_px: 4.0
+pnp_error_px: 3.0
+min_pnp_inliers: 8
+bundle_adjustment: true
+ba_max_nfev: 40

@@ -34,6 +34,31 @@ centers are `-R.T @ t`. COLMAP pixel centers are converted to OpenCV coordinates
 Estimated monocular SfM has arbitrary scale. Supplied extrinsics are never used
 to estimate the baseline pose. Parameters and software versions are in reports.
 
+## Incremental multi-view reconstruction
+
+```powershell
+python -m timetravel3d inspect ..\multi_view_training_rig_undistorted\delivery_area
+python -m timetravel3d multi-view ..\multi_view_training_rig_undistorted\delivery_area --views 5 --stride 12 --output results\rig_delivery_area
+python -m timetravel3d multi-view ..\multi_view_training_dslr_undistorted\courtyard --views 6 --output results\dslr_courtyard
+```
+
+Fresh SIFT matches build conflict-free tracks. The initial pair is chosen using
+inlier support and parallax; further cameras use PnP-RANSAC with 2D-3D tracks.
+Consensus triangulation supports more than two observations. Sparse robust bundle
+adjustment fixes intrinsics and the two seed poses (including their relative pose).
+The baseline has standard 4 px track verification and a 0.05 degree conditioning
+floor, applied before every later confidence variant. Use `--no-ba` to disable BA.
+
+For rig data the default is a temporal subset of the lowest camera ID; use
+`--camera-id` to choose another sensor. This is single-sensor SfM from rig images,
+not a rigid-rig optimizer. `--views`, `--stride`, and `--start` define the subset.
+Use a temporal stride that provides parallax; neighboring video frames can be
+degenerate. Unregistered views and registration rate are reported explicitly.
+
+Adding `--known-poses` uses supplied ETH3D extrinsics and disables pose estimation
+and BA. Reports label this `known_pose_triangulation`; it is not estimated SfM.
+Supplied COLMAP points and observations are never reused as input or ground truth.
+
 ## References and research scope
 
 - [Schönberger & Frahm, Structure-from-Motion Revisited, CVPR 2016](https://openaccess.thecvf.com/content_cvpr_2016/html/Schonberger_Structure-From-Motion_Revisited_CVPR_2016_paper.html)
