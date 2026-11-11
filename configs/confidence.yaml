@@ -1,0 +1,10 @@
+# Prespecified hypotheses; do not tune on held-out scenes.
+error_scale_px: 1.0
+angle_scale_deg: 1.0
+support_target: 4
+reprojection_threshold_px: 0.5
+angle_threshold_deg: 0.3
+score_threshold: 0.65
+min_observations: 3
+combined_weights: [0.6, 0.4]
+multiview_weights: [0.45, 0.35, 0.2]

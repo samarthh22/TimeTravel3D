@@ -61,6 +61,16 @@ Supplied COLMAP points and observations are never reused as input or ground trut
 
 ## References and research scope
 
+The [confidence method](docs/NOVELTY.md) has its own implementation commit.
+Run its five frozen-baseline ablations and two point-count-matched controls:
+
+```powershell
+python -m timetravel3d ablate results\rig_delivery_area --config configs\confidence.yaml --output results\rig_ablation
+```
+
+JSON/CSV, point clouds, and plots expose retention and image grid coverage.
+Weights and cutoffs are configurable hypotheses.
+
 - [Schönberger & Frahm, Structure-from-Motion Revisited, CVPR 2016](https://openaccess.thecvf.com/content_cvpr_2016/html/Schonberger_Structure-From-Motion_Revisited_CVPR_2016_paper.html)
 - [COLMAP](https://github.com/colmap/colmap) and its [text format](https://colmap.github.io/format.html)
 - [Pan et al., Global Structure-from-Motion Revisited, ECCV 2024](https://arxiv.org/abs/2407.20219)

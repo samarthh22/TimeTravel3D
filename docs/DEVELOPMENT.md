@@ -41,3 +41,13 @@ are excluded from Git. Small aggregate measured tables may be committed to
 - BA on the estimated rig subset converged in 5 evaluations, residual component
   RMSE 0.3080 to 0.2961 px. This is optimizer validation, not evidence of improved
   ground-truth reconstruction accuracy.
+
+## Stage 3: dedicated confidence contribution
+
+- Added separate `confidence.py`, configurable geometric score hypotheses,
+  five ablations, two matched-count controls, and frozen-baseline grid coverage.
+- `python -m pytest -q`: **16 passed**.
+- Rig delivery_area: baseline 562 points; reprojection 487; angle 562;
+  combined 530 (94.31% retention, 95.32% occupied-cell retention);
+  multi-view support 275 (48.93% retention, 75.92% occupied-cell retention).
+- No 3D accuracy conclusion is inferred from these retention/residual results.

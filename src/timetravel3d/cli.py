@@ -43,6 +43,10 @@ def main():
     multi.add_argument("--camera-id", type=int)
     multi.add_argument("--known-poses", action="store_true")
     multi.add_argument("--no-ba", action="store_true")
+    ablate = sub.add_parser("ablate", help="Confidence contribution: frozen-baseline ablations")
+    ablate.add_argument("reconstruction", type=Path)
+    ablate.add_argument("--output", type=Path, required=True)
+    ablate.add_argument("--config", type=Path, help="Confidence YAML, not the SfM configuration")
     args = parser.parse_args()
     try:
         if args.command == "inspect":
@@ -51,13 +55,16 @@ def main():
         elif args.command == "two-view":
             from .two_view import run
             result = run(args.scene, args.output, read_config(args.config))
-        else:
+        elif args.command == "multi-view":
             from .multiview import run
             config = read_config(args.config)
             if args.no_ba:
                 config["bundle_adjustment"] = False
             result = run(args.scene, args.output, config, args.views, args.stride,
                          args.start, args.camera_id, args.known_poses)
+        else:
+            from .experiments import run
+            result = run(args.reconstruction, args.output, args.config)
     except (ValueError, FileNotFoundError) as exc:
         parser.exit(2, f"Error: {exc}\n")
     print(json.dumps(result, indent=2, allow_nan=False))
