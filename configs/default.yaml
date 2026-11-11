@@ -1,0 +1,7 @@
+seed: 22
+max_size: 1600
+max_features: 6000
+lowe_ratio: 0.75
+mutual_matching: true
+ransac_px: 1.0
+ransac_probability: 0.999
