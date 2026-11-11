@@ -10,7 +10,8 @@ DEFAULTS = {"seed": 22, "max_size": 1600, "max_features": 6000,
             "seed_min_angle_deg": .3, "min_initial_points": 20,
             "point_min_angle_deg": .05, "track_max_error_px": 4.,
             "pnp_error_px": 3., "min_pnp_inliers": 8,
-            "bundle_adjustment": True, "ba_max_nfev": 40}
+            "bundle_adjustment": True, "ba_max_nfev": 80, 'minimal_gauge_ba': True,
+            'rectified_stereo': False}
 
 
 def read_config(path):

@@ -133,7 +133,7 @@ def reconstruct(features, K, config, known_poses=None):
     obs = [observations[t] for t in tids]
     ba = {"enabled": False}
     if config["bundle_adjustment"] and known_poses is None:
-        points, poses, ba = bundle_adjust(points, obs, poses, K, fixed, config["ba_max_nfev"])
+        points, poses, ba = bundle_adjust(points, obs, poses, K, fixed, config["ba_max_nfev"], config.get('minimal_gauge_ba', True))
     valid = np.ones(len(points), bool)
     for pid, observation in enumerate(obs):
         for v, xy in observation:

@@ -1,0 +1,2 @@
+# ETH3D two-view acquisition constraint; not general estimated camera rotation.
+rectified_stereo: true

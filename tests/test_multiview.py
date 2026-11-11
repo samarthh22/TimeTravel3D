@@ -62,3 +62,15 @@ def test_four_view_incremental_registration_without_given_poses():
     assert (support == 4).all()
     assert np.median(errors) < 1e-4
     assert len(details["registration"]) == 2
+
+
+def test_minimal_gauge_refines_seed_rotation_and_preserves_scale():
+    X, K, poses, xy = problem()
+    perturbed = dict(poses)
+    perturbed[1] = Pose(cv2.Rodrigues(np.array([.01, .015, 0.]))[0], poses[1].t.copy())
+    obs = [[(v, xy[v][pid]) for v in poses] for pid in range(len(X))]
+    _, recovered, report = bundle_adjust(X + .01, obs, perturbed, K, {0, 1}, max_nfev=100, minimal_gauge=True)
+    assert report['accepted']
+    assert report['after_rmse_px'] < report['before_rmse_px'] * .01
+    assert np.linalg.norm(recovered[1].t) == __import__('pytest').approx(np.linalg.norm(poses[1].t))
+    assert np.linalg.norm(recovered[1].R - np.eye(3)) < .001

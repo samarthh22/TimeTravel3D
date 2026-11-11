@@ -6,7 +6,7 @@ import numpy as np
 
 from .data import load_image, load_scene
 from .features import extract, match
-from .geometry import Pose, angles, estimate_relative, project
+from .geometry import Pose, angles, estimate_relative, project, triangulate
 from .output import peak_memory_mb, save_reconstruction, summary, versions
 
 
@@ -25,8 +25,19 @@ def run(scene, output, config):
         features.append(extract(image, config["max_features"]))
     pairs = match(*features, config["lowe_ratio"], config["mutual_matching"])
     a, b = features[0].xy[pairs[:, 0]], features[1].xy[pairs[:, 1]]
-    pose, valid_ids, points, inliers = estimate_relative(a, b, *K,
-        config["ransac_px"], config["ransac_probability"])
+    if config.get('rectified_stereo', False):
+        # ETH3D explicitly supplies rectified stereo pairs. This uses that
+        # acquisition constraint, not supplied extrinsics or ground-truth depth.
+        pose = Pose(np.eye(3), np.array([-1., 0., 0.]))
+        valid_ids = np.flatnonzero(np.abs(a[:, 1] - b[:, 1]) <= config['ransac_px'])
+        points, valid = triangulate(a[valid_ids], b[valid_ids], *K, Pose(np.eye(3), np.zeros(3)), pose)
+        inliers = len(valid_ids)
+        valid_ids, points = valid_ids[valid], points[valid]
+        if len(points) < 8:
+            raise ValueError('Too few valid rectified stereo correspondences')
+    else:
+        pose, valid_ids, points, inliers = estimate_relative(a, b, *K,
+            config["ransac_px"], config["ransac_probability"])
     a, b = a[valid_ids], b[valid_ids]
     identity = Pose(np.eye(3), np.zeros(3))
     errors = (np.linalg.norm(project(points, K[0], identity)[0] - a, axis=1) +
@@ -35,7 +46,7 @@ def run(scene, output, config):
     support = np.full(len(points), 2)
     colors = features[0].colors[pairs[valid_ids, 0]]
     observations = [[(0, x), (1, y)] for x, y in zip(a, b)]
-    report = {"scene": Path(scene).name, "category": category, "mode": "estimated_sfm",
+    report = {"scene": Path(scene).name, "category": category, "mode": "rectified_stereo" if config.get('rectified_stereo') else "estimated_sfm",
         "scale": "arbitrary; estimated translation norm = 1", "config": config,
         "versions": versions(), "seed": config["seed"],
         "features": [len(f.xy) for f in features], "ratio_matches": len(pairs),

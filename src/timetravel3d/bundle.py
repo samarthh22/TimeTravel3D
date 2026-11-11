@@ -11,11 +11,26 @@ from scipy.sparse import lil_matrix
 from .geometry import Pose
 
 
-def bundle_adjust(points, observations, poses, intrinsics, fixed, max_nfev=40):
+def bundle_adjust(points, observations, poses, intrinsics, fixed, max_nfev=40, minimal_gauge=False):
+    scale_view = sorted(fixed)[1] if minimal_gauge and len(fixed) >= 2 else None
+    fixed = {min(fixed)} if scale_view is not None else set(fixed)
+    anchor = poses[min(fixed)]
+    # Transform is already in the seed first-camera frame in incremental SfM.
+    if scale_view is not None and (np.linalg.norm(anchor.t) > 1e-8 or np.linalg.norm(anchor.R - np.eye(3)) > 1e-8):
+        raise ValueError('Minimal gauge requires identity first seed pose')
     movable = [v for v in sorted(poses) if v not in fixed]
     camera_index = {v: i for i, v in enumerate(movable)}
-    initial_cameras = np.array([np.r_[cv2.Rodrigues(poses[v].R)[0].ravel(), poses[v].t]
-                                for v in movable]).reshape(-1)
+    offsets, packed = {}, []
+    baseline = np.linalg.norm(poses[scale_view].t) if scale_view is not None else None
+    for v in movable:
+        offsets[v] = len(packed)
+        packed.extend(cv2.Rodrigues(poses[v].R)[0].ravel())
+        if v == scale_view:
+            t = poses[v].t / baseline
+            packed.extend([np.arctan2(t[1], t[0]), np.arcsin(np.clip(t[2], -1, 1))])
+        else:
+            packed.extend(poses[v].t)
+    initial_cameras = np.array(packed)
     ncam = len(initial_cameras)
     initial = np.r_[initial_cameras, np.asarray(points).reshape(-1)]
     obs_point, obs_view, obs_xy = [], [], []
@@ -31,9 +46,14 @@ def bundle_adjust(points, observations, poses, intrinsics, fixed, max_nfev=40):
 
     def unpack(x):
         cameras = dict(poses)
-        for v, idx in camera_index.items():
-            params = x[idx * 6:idx * 6 + 6]
-            cameras[v] = Pose(cv2.Rodrigues(params[:3])[0], params[3:6])
+        for v, offset in offsets.items():
+            params = x[offset:offset + (5 if v == scale_view else 6)]
+            if v == scale_view:
+                az, el = params[3:5]
+                t = baseline * np.array([np.cos(el) * np.cos(az), np.cos(el) * np.sin(az), np.sin(el)])
+            else:
+                t = params[3:6]
+            cameras[v] = Pose(cv2.Rodrigues(params[:3])[0], t)
         return x[ncam:].reshape(-1, 3), cameras
 
     def residuals(x):
@@ -50,8 +70,8 @@ def bundle_adjust(points, observations, poses, intrinsics, fixed, max_nfev=40):
     for k, (pid, v) in enumerate(zip(obs_point, obs_view)):
         sparsity[2 * k:2 * k + 2, ncam + 3 * pid:ncam + 3 * pid + 3] = 1
         if v in camera_index:
-            idx = camera_index[v] * 6
-            sparsity[2 * k:2 * k + 2, idx:idx + 6] = 1
+            idx = offsets[v]
+            sparsity[2 * k:2 * k + 2, idx:idx + (5 if v == scale_view else 6)] = 1
     before = residuals(initial)
     result = least_squares(residuals, initial, jac_sparsity=sparsity.tocsr(),
                            loss="soft_l1", f_scale=1., x_scale="jac",
@@ -63,4 +83,6 @@ def bundle_adjust(points, observations, poses, intrinsics, fixed, max_nfev=40):
         "converged": bool(result.success), "function_evaluations": result.nfev,
         "before_rmse_px": float(np.sqrt(np.mean(before ** 2))),
         "after_rmse_px": float(np.sqrt(np.mean(residuals(result.x if accepted else initial) ** 2))),
-        "fixed_views": sorted(fixed), "message": result.message}
+        "fixed_views": sorted(fixed), "scale_anchor_view": scale_view,
+        "gauge": "first_pose_and_seed_baseline_norm" if scale_view is not None else "two_fixed_seed_poses",
+        "message": result.message}
