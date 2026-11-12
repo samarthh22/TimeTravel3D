@@ -1,5 +1,9 @@
 # Evaluation and reproducibility
 
+This document records the V1 evaluation workflow. The final V2 protocol,
+minimal-gauge optimizer, complete scene attempt list, repeated seeds and measured
+conclusions are in [FINAL_RESULTS.md](FINAL_RESULTS.md) and the root README.
+
 ## Run all three categories
 
 From the repository, using the dedicated virtual environment:

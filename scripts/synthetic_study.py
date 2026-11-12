@@ -33,6 +33,10 @@ def main():
             points.append(h[:3] / h[3])
             observations.append(obs)
         points = np.array(points)
+        # Apply the real-SfM finite positive-depth baseline gate before selection.
+        valid = np.isfinite(points).all(axis=1) & (points[:, 2] > 0)
+        truth, points = truth[valid], points[valid]
+        observations = [obs for obs, keep in zip(observations, valid) if keep]
         errors, angles, support = point_metrics(points, observations, poses, K)
         op, ov, oxy = [], [], []
         for pid, obs in enumerate(observations):
@@ -45,7 +49,7 @@ def main():
         _, masks = variants(data)
         actual = np.linalg.norm(points - truth, axis=1)
         for method, keep in masks.items():
-            rows.append({'seed': seed, 'method': method, 'initial_points': count, 'retained_points': int(keep.sum()),
+            rows.append({'seed': seed, 'method': method, 'generated_points': count, 'initial_points': len(points), 'retained_points': int(keep.sum()),
                 'median_point_error_m': float(np.median(actual[keep])), 'mean_point_error_m': float(np.mean(actual[keep]))})
     dest = Path('benchmarks/synthetic')
     dest.mkdir(parents=True, exist_ok=True)
@@ -55,7 +59,8 @@ def main():
         'cameras': 5, 'noise': 'per-track log-uniform sigma 0.3-3.0 px; zero-mean Gaussian observations',
         'depth_range_m': [4, 20], 'observations': 'uniform integer 2-5 views',
         'camera_poses': 'known exactly; this validates conditional point uncertainty, not estimated-camera robustness',
-        'retention': .8, 'noise_floor_px': .5, 'matching': 'known correct correspondences; no SIFT or gross mismatch outliers'})
+        'retention': .8, 'noise_floor_px': .5, 'matching': 'known correct correspondences; no SIFT or gross mismatch outliers',
+        'baseline_validity': 'finite points with positive depth; gate uses camera geometry, not ground truth'})
     for method in masks:
         print(method, np.mean([r['median_point_error_m'] for r in rows if r['method'] == method]))
 

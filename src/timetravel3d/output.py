@@ -69,9 +69,16 @@ def plot_cloud(path, points, colors):
     fig = plt.figure(figsize=(9, 6))
     ax = fig.add_subplot(111, projection="3d")
     if len(points):
-        keep = np.linspace(0, len(points) - 1, min(len(points), 10000), dtype=int)
-        ax.scatter(*points[keep].T, c=colors[keep] / 255., s=2)
-    ax.set(xlabel="X (arbitrary scale)", ylabel="Y", zlabel="Z", title="Sparse reconstruction")
+        lo, hi = np.quantile(points, [.02, .98], axis=0)
+        visible = np.flatnonzero(((points >= lo) & (points <= hi)).all(axis=1))
+        keep = visible[np.linspace(0, len(visible) - 1, min(len(visible), 10000), dtype=int)]
+        ax.scatter(*points[keep].T, c=colors[keep] / 255., s=3)
+        for setter, lower, upper in zip((ax.set_xlim, ax.set_ylim, ax.set_zlim), lo, hi):
+            if upper > lower:
+                setter(lower, upper)
+        ax.view_init(elev=-75, azim=-90)
+    ax.set(xlabel="X (arbitrary scale)", ylabel="Y", zlabel="Z", title="Sparse reconstruction: central 96% display range")
+    fig.text(.5, .015, 'Display bounds only. Full point cloud and evaluation retain every baseline point.', ha='center', fontsize=8)
     fig.tight_layout()
     fig.savefig(path, dpi=150)
     plt.close(fig)

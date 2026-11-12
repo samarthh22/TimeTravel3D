@@ -22,5 +22,6 @@
   "camera_poses": "known exactly; this validates conditional point uncertainty, not estimated-camera robustness",
   "retention": 0.8,
   "noise_floor_px": 0.5,
-  "matching": "known correct correspondences; no SIFT or gross mismatch outliers"
+  "matching": "known correct correspondences; no SIFT or gross mismatch outliers",
+  "baseline_validity": "finite points with positive depth; gate uses camera geometry, not ground truth"
 }

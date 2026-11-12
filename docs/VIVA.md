@@ -44,13 +44,15 @@ then nonlinear pose refinement uses the inliers.
 
 **What does bundle adjustment optimize?** Pixel residuals across registered
 camera poses and 3D points, with fixed intrinsics. This implementation uses
-robust soft-L1 loss and sparse Jacobian structure. Two seed poses remain fixed,
-so their initial relative-pose errors cannot be corrected by this constrained BA.
+robust soft-L1 loss and sparse Jacobian structure. Final minimal-gauge BA fixes
+the first pose and seed baseline length, while allowing the second seed pose
+to improve. The earlier two-fixed-pose optimizer remains a reproducible option.
 
-**What is the proposed contribution?** A configurable geometric confidence rule
-and controlled ablations. It combines residual, ray angle, and distinct-image
-support. The constituent signals are established ideas. We report what the
-combination actually does without claiming it is a new general SfM algorithm.
+**What is the proposed contribution?** V2 ranks continuous conditional positional
+uncertainty from projection Jacobians and residual variance, then reserves
+spatial representatives within a fixed 80% point budget. Geometry and distinct
+view support enter the information matrix. Matched-count and coverage-matched
+controls isolate its effects. It is a measured combination of established ideas.
 
 **Why report count-matched controls?** Throwing away more points can make average
 error look better. Keeping exactly the combined filter's point budget compares
@@ -59,13 +61,26 @@ ranking quality without that point-count advantage.
 **Why is two-view support not informative?** Every reconstructed point has two
 observations. More-view support becomes useful only after track formation and
 camera registration; the support filter's minimum of three gives an empty
-two-view result by design.
+two-view result by design in V1. V2 uses a fixed budget and does not require
+three observations, so it also produces nonempty two-view selections.
 
 **How is monocular scale handled?** The estimated seed baseline is one arbitrary
 unit. Evaluation alone uses calibrated stereo baseline or camera-pose similarity
 alignment to compare against metric ground truth.
 
 **What are the main limitations?** Exploratory training scenes, no native full
-resolution or full rig optimization, constrained seed poses in BA, no dense MVS,
+resolution or full rig optimization, fixed-camera conditional uncertainty, no dense MVS,
 no COLMAP numerical benchmark, approximate sampled-scan diagnostics, and no
 visibility-aware official ETH3D completeness scores.
+
+**What improved in the final study?** At a fixed 80% budget, 9/11 eligible V2
+held-out multi-view subsets had lower median sampled-scan distance, averaging
+11.96% relative reduction versus all points. Against equal-budget residual
+ranking the mean reduction was 6.46%, with 6/11 wins. The synthetic noise study
+showed 29.64% reduction versus all points over ten seeds. Read FINAL_RESULTS.md
+for failures, the exact split and prior V1 scene exposure.
+
+**Does this prove field-level novelty?** No. It supports this implemented
+error-coverage tradeoff under documented assumptions. Covariance and coverage
+selection are established ideas, some scenes regress, and pose bias remains
+outside the conditional model.

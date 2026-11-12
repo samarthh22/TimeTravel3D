@@ -18,3 +18,7 @@ tmp/
 *.npz
 *.pfm
 .DS_Store
+presentation/
+scripts/build_defense.py
+*.pptx
+*.ppt

@@ -2,6 +2,7 @@
   {
     "seed": 100,
     "method": "baseline",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 1000,
     "median_point_error_m": 0.11109277660676875,
@@ -10,6 +11,7 @@
   {
     "seed": 100,
     "method": "reprojection_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.09898030933472104,
@@ -18,6 +20,7 @@
   {
     "seed": 100,
     "method": "angle_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08068632663983463,
@@ -26,6 +29,7 @@
   {
     "seed": 100,
     "method": "support_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.09865996006117,
@@ -34,6 +38,7 @@
   {
     "seed": 100,
     "method": "uncertainty_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.0778010766331951,
@@ -42,6 +47,7 @@
   {
     "seed": 100,
     "method": "coverage_uncertainty",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.07786265627971639,
@@ -50,6 +56,7 @@
   {
     "seed": 100,
     "method": "coverage_reprojection",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.09824260369905549,
@@ -58,6 +65,7 @@
   {
     "seed": 100,
     "method": "coverage_angle",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08068632663983463,
@@ -66,6 +74,7 @@
   {
     "seed": 101,
     "method": "baseline",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 1000,
     "median_point_error_m": 0.11086006736679152,
@@ -74,6 +83,7 @@
   {
     "seed": 101,
     "method": "reprojection_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.09638610856857385,
@@ -82,6 +92,7 @@
   {
     "seed": 101,
     "method": "angle_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.0826975835580159,
@@ -90,6 +101,7 @@
   {
     "seed": 101,
     "method": "support_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.09918887869405993,
@@ -98,6 +110,7 @@
   {
     "seed": 101,
     "method": "uncertainty_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08032005585456951,
@@ -106,6 +119,7 @@
   {
     "seed": 101,
     "method": "coverage_uncertainty",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08032005585456951,
@@ -114,6 +128,7 @@
   {
     "seed": 101,
     "method": "coverage_reprojection",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.09457063937105398,
@@ -122,6 +137,7 @@
   {
     "seed": 101,
     "method": "coverage_angle",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.0826975835580159,
@@ -130,6 +146,7 @@
   {
     "seed": 102,
     "method": "baseline",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 1000,
     "median_point_error_m": 0.10193053108054395,
@@ -138,6 +155,7 @@
   {
     "seed": 102,
     "method": "reprojection_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.0834268330111741,
@@ -146,6 +164,7 @@
   {
     "seed": 102,
     "method": "angle_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.07478957598783961,
@@ -154,6 +173,7 @@
   {
     "seed": 102,
     "method": "support_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.0929741764150516,
@@ -162,6 +182,7 @@
   {
     "seed": 102,
     "method": "uncertainty_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.07076358752557807,
@@ -170,6 +191,7 @@
   {
     "seed": 102,
     "method": "coverage_uncertainty",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.07076358752557807,
@@ -178,6 +200,7 @@
   {
     "seed": 102,
     "method": "coverage_reprojection",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.0804144768866035,
@@ -186,6 +209,7 @@
   {
     "seed": 102,
     "method": "coverage_angle",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.07461213272493472,
@@ -194,6 +218,7 @@
   {
     "seed": 103,
     "method": "baseline",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 1000,
     "median_point_error_m": 0.1071443249921339,
@@ -202,6 +227,7 @@
   {
     "seed": 103,
     "method": "reprojection_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08786113576168703,
@@ -210,6 +236,7 @@
   {
     "seed": 103,
     "method": "angle_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.07979171383323992,
@@ -218,6 +245,7 @@
   {
     "seed": 103,
     "method": "support_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.09598038743480664,
@@ -226,6 +254,7 @@
   {
     "seed": 103,
     "method": "uncertainty_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.07641711873265347,
@@ -234,6 +263,7 @@
   {
     "seed": 103,
     "method": "coverage_uncertainty",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.07641711873265347,
@@ -242,6 +272,7 @@
   {
     "seed": 103,
     "method": "coverage_reprojection",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08588756987570913,
@@ -250,6 +281,7 @@
   {
     "seed": 103,
     "method": "coverage_angle",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.07979171383323992,
@@ -258,6 +290,7 @@
   {
     "seed": 104,
     "method": "baseline",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 1000,
     "median_point_error_m": 0.11322698115539709,
@@ -266,6 +299,7 @@
   {
     "seed": 104,
     "method": "reprojection_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08759409245047528,
@@ -274,6 +308,7 @@
   {
     "seed": 104,
     "method": "angle_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.07945344630844929,
@@ -282,6 +317,7 @@
   {
     "seed": 104,
     "method": "support_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.098643816699433,
@@ -290,6 +326,7 @@
   {
     "seed": 104,
     "method": "uncertainty_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.07578767122358368,
@@ -298,6 +335,7 @@
   {
     "seed": 104,
     "method": "coverage_uncertainty",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.07578767122358368,
@@ -306,6 +344,7 @@
   {
     "seed": 104,
     "method": "coverage_reprojection",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08569097913155302,
@@ -314,6 +353,7 @@
   {
     "seed": 104,
     "method": "coverage_angle",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.07945344630844929,
@@ -322,6 +362,7 @@
   {
     "seed": 105,
     "method": "baseline",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 1000,
     "median_point_error_m": 0.11124787824842058,
@@ -330,6 +371,7 @@
   {
     "seed": 105,
     "method": "reprojection_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.09388548613066477,
@@ -338,6 +380,7 @@
   {
     "seed": 105,
     "method": "angle_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08727012435826374,
@@ -346,6 +389,7 @@
   {
     "seed": 105,
     "method": "support_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.09894682118480586,
@@ -354,6 +398,7 @@
   {
     "seed": 105,
     "method": "uncertainty_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08126352719013726,
@@ -362,6 +407,7 @@
   {
     "seed": 105,
     "method": "coverage_uncertainty",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08126352719013726,
@@ -370,6 +416,7 @@
   {
     "seed": 105,
     "method": "coverage_reprojection",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.09120546043415734,
@@ -378,6 +425,7 @@
   {
     "seed": 105,
     "method": "coverage_angle",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08714861327912518,
@@ -386,6 +434,7 @@
   {
     "seed": 106,
     "method": "baseline",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 1000,
     "median_point_error_m": 0.10641157847531851,
@@ -394,6 +443,7 @@
   {
     "seed": 106,
     "method": "reprojection_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.09490218656204066,
@@ -402,6 +452,7 @@
   {
     "seed": 106,
     "method": "angle_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08277247604790332,
@@ -410,6 +461,7 @@
   {
     "seed": 106,
     "method": "support_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.09551172006393019,
@@ -418,6 +470,7 @@
   {
     "seed": 106,
     "method": "uncertainty_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08061680111658082,
@@ -426,6 +479,7 @@
   {
     "seed": 106,
     "method": "coverage_uncertainty",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08061680111658082,
@@ -434,6 +488,7 @@
   {
     "seed": 106,
     "method": "coverage_reprojection",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.09123213960951801,
@@ -442,6 +497,7 @@
   {
     "seed": 106,
     "method": "coverage_angle",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08249181139115143,
@@ -450,6 +506,7 @@
   {
     "seed": 107,
     "method": "baseline",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 1000,
     "median_point_error_m": 0.11694313862814673,
@@ -458,6 +515,7 @@
   {
     "seed": 107,
     "method": "reprojection_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.09590800154386339,
@@ -466,6 +524,7 @@
   {
     "seed": 107,
     "method": "angle_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.07899782634832513,
@@ -474,6 +533,7 @@
   {
     "seed": 107,
     "method": "support_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.09337973188423782,
@@ -482,6 +542,7 @@
   {
     "seed": 107,
     "method": "uncertainty_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.07280127720035492,
@@ -490,6 +551,7 @@
   {
     "seed": 107,
     "method": "coverage_uncertainty",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.07280127720035492,
@@ -498,6 +560,7 @@
   {
     "seed": 107,
     "method": "coverage_reprojection",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.09288442207547518,
@@ -506,6 +569,7 @@
   {
     "seed": 107,
     "method": "coverage_angle",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.07812408282694387,
@@ -514,6 +578,7 @@
   {
     "seed": 108,
     "method": "baseline",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 1000,
     "median_point_error_m": 0.10988953088285638,
@@ -522,6 +587,7 @@
   {
     "seed": 108,
     "method": "reprojection_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.09278799367878929,
@@ -530,6 +596,7 @@
   {
     "seed": 108,
     "method": "angle_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08139436609560617,
@@ -538,6 +605,7 @@
   {
     "seed": 108,
     "method": "support_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.09787724187100594,
@@ -546,6 +614,7 @@
   {
     "seed": 108,
     "method": "uncertainty_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.07908866380838672,
@@ -554,6 +623,7 @@
   {
     "seed": 108,
     "method": "coverage_uncertainty",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.07908866380838672,
@@ -562,6 +632,7 @@
   {
     "seed": 108,
     "method": "coverage_reprojection",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.09131220564019805,
@@ -570,6 +641,7 @@
   {
     "seed": 108,
     "method": "coverage_angle",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08150243348147161,
@@ -578,6 +650,7 @@
   {
     "seed": 109,
     "method": "baseline",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 1000,
     "median_point_error_m": 0.12026630162031586,
@@ -586,6 +659,7 @@
   {
     "seed": 109,
     "method": "reprojection_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.1016351833064206,
@@ -594,6 +668,7 @@
   {
     "seed": 109,
     "method": "angle_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08559993487663689,
@@ -602,6 +677,7 @@
   {
     "seed": 109,
     "method": "support_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.10437905721151577,
@@ -610,6 +686,7 @@
   {
     "seed": 109,
     "method": "uncertainty_budget",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08542857608793115,
@@ -618,6 +695,7 @@
   {
     "seed": 109,
     "method": "coverage_uncertainty",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08542857608793115,
@@ -626,6 +704,7 @@
   {
     "seed": 109,
     "method": "coverage_reprojection",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.09803210442649155,
@@ -634,6 +713,7 @@
   {
     "seed": 109,
     "method": "coverage_angle",
+    "generated_points": 1000,
     "initial_points": 1000,
     "retained_points": 800,
     "median_point_error_m": 0.08559993487663689,
